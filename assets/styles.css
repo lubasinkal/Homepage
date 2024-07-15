@@ -1,0 +1,266 @@
+/* Universal Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'JetBrains Mono', monospace;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+header {
+  background-color: burlywood; /* Light mode */
+  color: white;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  flex-direction: row;
+  text-align: left;
+}
+
+header img#Propic {
+  border-radius: 50%;
+  margin-right: 50px;
+  width: 120px;
+  height: 120px;
+}
+
+.header-text {
+  text-align: left;
+}
+
+header h1, header h2 {
+  margin: 0;
+}
+
+header h1 {
+  font-size: 2em;
+}
+
+header h2 {
+  font-size: 1.2em;
+  font-weight: 400;
+  color: #f0f0f0;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  background-color: burlywood;
+  padding: 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Main Content */
+main {
+  flex: 1;
+  padding: 20px;
+  background-color: ghostwhite;
+}
+
+section {
+  margin-bottom: 20px;
+}
+
+section#skills ul {
+  list-style: none;
+  padding: 0;
+}
+
+section#skills ul li {
+  background: #f0f0f0;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.post {
+  background: #f9f9f9;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.post h2 {
+  margin-bottom: 10px;
+}
+
+.button {
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border: 1px solid #555;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+.reference {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.reference h3 {
+  margin-top: 0;
+}
+
+.reference ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.reference ul li {
+  margin-bottom: 5px;
+}
+
+.reference a {
+  color: #1e90ff;
+}
+
+
+/* Footer */
+footer {
+  background-color: #282c34;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+  font-weight: 200;
+  font-size: x-small;
+}
+
+#about_title {
+  font-size: small;
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: black;
+    color: white;
+  }
+
+  header {
+    background-color: #444; /* Dark mode */
+    color: white;
+  }
+
+  header h2 {
+    color: #dcdcdc; /* Lighter grey */
+  }
+
+  nav {
+    background-color: #444; /* Dark mode */
+  }
+
+  footer {
+    background-color: #222; /* Darker footer */
+    color: #ccc; /* Lighter text */
+  }
+
+  a {
+    color: lightblue; /* Light blue for links */
+  }
+
+  main {
+    background-color: #1a1a1a; /* Dark background for main content */
+  }
+
+  section#skills ul li {
+    background: #333; /* Dark mode */
+    color: #ddd;
+  }
+
+  .post {
+    background: #333; /* Dark mode */
+    border: 1px solid #444;
+  }
+
+  .button {
+    background-color: #555; /* Dark mode */
+    color: white;
+  }
+
+  .button:hover {
+    background-color: #777;
+  }
+
+  .reference {
+    background-color: #444; /* Dark mode background for references */
+    border: 1px solid #666;
+  }
+
+  .reference h3 {
+    color: #ddd; /* Light grey for reference names */
+  }
+
+  .reference ul li {
+    color: #ccc; /* Lighter text for reference details */
+  }
+
+  .reference a {
+    color: #1e90ff; /* Light blue for links */
+  }
+}
+
+/* Additional Styles for Skill Pages */
+section#skill-details {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+section#skill-details h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+section#skill-details h2 {
+  font-size: 1.5em;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+section#skill-details p {
+  line-height: 1.6;
+}
+
+section#skill-details ul {
+  padding-left: 20px;
+}
+
+section#skill-details ul li {
+  margin-bottom: 10px;
+}
+
