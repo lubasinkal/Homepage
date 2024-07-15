@@ -76,6 +76,13 @@ nav a:hover {
   text-decoration: underline;
 }
 
+object {
+  width: 100%;
+  height: 600px;
+  background-color: lightgray; /* Add a background color if needed */
+  border: 1px solid #ccc; /* Add a border for better visual separation */
+}
+
 @media (max-width: 600px) {
   nav {
       display: flex;
