@@ -11,7 +11,7 @@ body {
   padding: 0;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 .wrapper {
@@ -62,6 +62,8 @@ nav {
   justify-content: space-around;
   background-color: burlywood;
   padding: 10px;
+  overflow-x: auto; /* Add this line */
+  white-space: nowrap; /* Add this line to prevent wrapping */
 }
 
 nav a {
@@ -74,6 +76,18 @@ nav a:hover {
   text-decoration: underline;
 }
 
+@media (max-width: 600px) {
+  nav {
+      display: flex;
+      flex-wrap: wrap; /* Add this line */
+      justify-content: center;
+      padding: 5px; /* Adjust padding for smaller screens */
+  }
+
+  nav a {
+      margin: 5px; /* Adjust margin for smaller screens */
+  }
+}
 /* Main Content */
 main {
   flex: 1;
