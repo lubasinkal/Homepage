@@ -5,7 +5,7 @@ body {
 }
 
 header {
-  background-color: burlywood;
+  background-color: burlywood; /* Light mode */
   color: white;
   padding: 20px;
   text-align: center;
@@ -29,7 +29,7 @@ header img#Propic {
 
 main {
   padding: 20px;
-  background-color: ghostwhite
+  background-color: ghostwhite;
 }
 
 section {
@@ -49,4 +49,39 @@ footer {
 
 #about_title {
   font-size: small;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: black;
+    color: white;
+  }
+  
+  header {
+    background-color: #444; /* Dark mode */
+    color: white;
+  }
+  
+  header h2 {
+    color: #dcdcdc; /* Lighter grey */
+  }
+  
+  main {
+    background-color: #1a1a1a; /* Dark background for main content */
+  }
+  
+  footer {
+    background-color: #222; /* Darker footer */
+    color: #ccc; /* Lighter text */
+  }
+  
+  a {
+    color: #1e90ff; /* Light blue for links */
+  }
+  
+  .button {
+    background-color: #333;
+    color: white;
+    border: 1px solid #555;
+  }
 }

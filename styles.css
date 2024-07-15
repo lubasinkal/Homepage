@@ -20,7 +20,7 @@ body {
 }
 
 header {
-  background-color: burlywood;
+  background-color: burlywood; /* Light mode */
   color: white;
   padding: 20px;
   display: flex;
@@ -76,4 +76,28 @@ footer {
 
 #about_title {
   font-size: small;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: black;
+    color: white;
+  }
+  
+  header {
+    background-color: #444; /* Dark mode */
+    color: white;
+  }
+  
+  header h2 {
+    color: #dcdcdc; /* Lighter grey */
+  }
+  
+  footer {
+    background-color: #222; /* Darker footer */
+    color: #ccc; /* Lighter text */
+  }
+  a {
+    color: #1e90ff; /* Light blue for links */
+  }
 }
