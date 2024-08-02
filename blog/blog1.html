@@ -9,10 +9,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&display=swap" rel="stylesheet">
     <title>Behind the Scenes of My Latest Flask Application - Lubasi S. Nkalolang</title>
-    <meta name="description" content="Explore the development process of my latest Flask application, including setup, coding, and deployment. Perfect for beginners interested in web development.">
+    <meta name="description"
+        content="Explore the development process of my latest Flask application, including setup, coding, and deployment. Perfect for beginners interested in web development.">
     <link rel="stylesheet" href="../assets/styles.css">
     <meta property="og:title" content="Behind the Scenes of My Latest Flask Application - Lubasi S. Nkalolang">
-    <meta property="og:description" content="Explore the development process of my latest Flask application, including setup, coding, and deployment. Perfect for beginners interested in web development.">
+    <meta property="og:description"
+        content="Explore the development process of my latest Flask application, including setup, coding, and deployment. Perfect for beginners interested in web development.">
     <meta property="og:image" content="../assets/propic.jpeg">
     <meta property="og:url" content="https://lubasinkal.pages.dev/blog.html">
     <meta property="og:type" content="website">
@@ -21,10 +23,12 @@
             margin-top: 20px;
             margin-bottom: 15px;
         }
+
         h3 {
             margin-top: 18px;
             margin-bottom: 12px;
         }
+
         pre code {
             display: block;
             padding: 10px;
@@ -36,6 +40,7 @@
             overflow-x: auto;
             font-size: 16px;
         }
+
         p {
             margin-bottom: 15px;
         }
@@ -65,17 +70,24 @@
         <main>
             <section id="blog">
                 <h2>Behind the Scenes of My Latest Flask Application</h2>
-                <p>Welcome to my blog! In this post, I’ll walk you through the development process of my latest Flask application. Whether you’re new to Flask or just curious about how web applications are built, this behind-the-scenes look will give you a clearer picture of what goes into creating a Flask app.</p>
+                <p>Welcome to my blog! In this post, I’ll walk you through the development process of my latest Flask
+                    application. Whether you’re new to Flask or just curious about how web applications are built, this
+                    behind-the-scenes look will give you a clearer picture of what goes into creating a Flask app.</p>
 
                 <h3>Introduction</h3>
-                <p>Flask is a lightweight and flexible web framework for Python. It’s perfect for small to medium-sized projects and provides the essentials to get a web application up and running. I chose Flask for my latest project because of its simplicity and the ease of integrating it with other tools and libraries.</p>
+                <p>Flask is a lightweight and flexible web framework for Python. It’s perfect for small to medium-sized
+                    projects and provides the essentials to get a web application up and running. I chose Flask for my
+                    latest project because of its simplicity and the ease of integrating it with other tools and
+                    libraries.</p>
 
                 <h3>Setting Up the Environment</h3>
-                <p>1. <strong>Creating a Virtual Environment:</strong> I started by setting up a virtual environment to keep my project dependencies isolated. This is done using the following commands:</p>
+                <p>1. <strong>Creating a Virtual Environment:</strong> I started by setting up a virtual environment to
+                    keep my project dependencies isolated. This is done using the following commands:</p>
                 <pre><code>python -m venv venv
 source venv/bin/activate  # On Windows, use `venv\Scripts\activate`</code></pre>
 
-                <p>2. <strong>Installing Flask:</strong> With the virtual environment activated, I installed Flask using pip:</p>
+                <p>2. <strong>Installing Flask:</strong> With the virtual environment activated, I installed Flask using
+                    pip:</p>
                 <pre><code>pip install Flask</code></pre>
 
                 <h3>Building the Application</h3>
@@ -91,10 +103,14 @@ source venv/bin/activate  # On Windows, use `venv\Scripts\activate`</code></pre>
 
                 <p><strong>Key Files:</strong></p>
 
-                <p>- <strong>app.py:</strong> This is the main file where the Flask application is created and routes are defined. Here’s a basic example:</p>
+                <p>- <strong>app.py:</strong> This is the main file where the Flask application is created and routes
+                    are defined. Here’s a basic example:</p>
                 <pre><code>from flask import Flask, render_template
+from config import db, app
 
-app = Flask(__name__)
+# Create all tables
+with app.app_context():
+    db.create_all()
 
 @app.route('/')
 def home():
@@ -103,13 +119,21 @@ def home():
 if __name__ == '__main__':
     app.run(debug=True)</code></pre>
 
-                <p>- <strong>config.py:</strong> This file is used to configure various settings for the Flask application. It typically includes configurations such as secret keys, database URIs, and other application settings. Here’s an example:</p>
-                <pre><code>class Config:
-    SECRET_KEY = 'your_secret_key'
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///site.db'
-    SQLALCHEMY_TRACK_MODIFICATIONS = False</code></pre>
+                <p>- <strong>config.py:</strong> This file is used to configure various settings for the Flask
+                    application. It typically includes configurations such as secret keys, database URIs, and other
+                    application settings. Here’s an example:</p>
+                <pre><code>from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+                    
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db' #sqlite uri
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False #Disabled modification tracking
 
-                <p>- <strong>templates/index.html:</strong> The HTML template for the home page. Flask uses Jinja2 templating engine to render dynamic content.</p>
+db = SQLAlchemy(app)
+                    </code></pre>
+
+                <p>- <strong>templates/index.html:</strong> The HTML template for the home page. Flask uses Jinja2
+                    templating engine to render dynamic content.</p>
                 <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
@@ -124,7 +148,8 @@ if __name__ == '__main__':
 &lt;/html&gt;</code></pre>
 
                 <h3>Adding Functionality</h3>
-                <p>To enhance the application, I added a form that allows users to submit data. I used Flask’s request object to handle form submissions and then displayed the submitted data on a new page.</p>
+                <p>To enhance the application, I added a form that allows users to submit data. I used Flask’s request
+                    object to handle form submissions and then displayed the submitted data on a new page.</p>
 
                 <p><strong>Form Handling Example:</strong></p>
                 <pre><code>from flask import Flask, request, render_template
@@ -155,15 +180,21 @@ def submit():
 &lt;/html&gt;</code></pre>
 
                 <h3>Deploying the Application</h3>
-                <p>I deployed my Flask application using Google Cloud Run. The process involves creating a Docker image of the application and pushing it to a container registry. From there, Google Cloud Run handles the scaling and deployment.</p>
+                <p>I deployed my Flask application using Google Cloud Run. The process involves creating a Docker image
+                    of the application and pushing it to a container registry. From there, Google Cloud Run handles the
+                    scaling and deployment.</p>
 
                 <h3>Conclusion</h3>
-                <p>Building this Flask application was a rewarding experience, and I hope this behind-the-scenes look gives you a better understanding of the development process. If you’re new to Flask, I encourage you to dive in and start building your own projects!</p>
+                <p>Building this Flask application was a rewarding experience, and I hope this behind-the-scenes look
+                    gives you a better understanding of the development process. If you’re new to Flask, I encourage you
+                    to dive in and start building your own projects!</p>
             </section>
         </main>
 
         <footer>
-            <p>&copy; 2024 Lubasi S. Nkalolang. All rights reserved. Favicon made by <a href="https://www.flaticon.com/free-icons/rubik" title="Rubik icons created by Freepik - Flaticon">Freepik - Flaticon</a>.</p>
+            <p>&copy; 2024 Lubasi S. Nkalolang. All rights reserved. Favicon made by <a
+                    href="https://www.flaticon.com/free-icons/rubik"
+                    title="Rubik icons created by Freepik - Flaticon">Freepik - Flaticon</a>.</p>
         </footer>
     </div>
 
