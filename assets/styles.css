@@ -114,25 +114,31 @@ main {
   transition: background-color 0.3s; /* Smooth transition */
 }
 
-section {
-  margin-bottom: 20px;
-}
-
 section#skills ul {
   list-style: none;
   padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 section#skills ul li {
-  background: #1e1e1e; /* Dark background for skills */
-  margin: 5px 0;
-  padding: 10px;
+  background-color: #121212; /* Dark button background */
+  color: #ffffff; /* White button text */
+  margin: 10px;
+  padding: 5px 10px;
   border-radius: 5px;
+  text-align: center;
   transition: background-color 0.3s; /* Smooth transition */
 }
 
+section#skills ul li a {
+  color: inherit;
+  text-decoration: none;
+}
+
 section#skills ul li:hover {
-  background: #333; /* Darker on hover */
+  background-color: #333; /* Darker hover effect */
 }
 
 .post {
