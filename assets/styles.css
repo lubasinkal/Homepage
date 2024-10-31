@@ -4,7 +4,9 @@
   margin: 0;
   padding: 0;
 }
-
+a {
+  color: green;
+}
 body {
   font-family: 'JetBrains Mono', monospace;
   margin: 0;
